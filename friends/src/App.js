@@ -3,6 +3,7 @@ import "./App.css";
 
 import axios from "axios";
 import { Friends } from "./components/Friends";
+import FriendForm from "./components/FriendForm";
 
 export default class App extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class App extends Component {
     axios
       .get("http://localhost:5000/friends")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           friends: res.data
         });
@@ -23,13 +24,19 @@ export default class App extends Component {
       .catch(err => {
         console.log("Error:", err);
       });
-    console.log(this.state);
+    // console.log(this.state);
+  }
+  addFriends = friends => {
+    this.setState ({
+      friends
+    })
   }
   render() {
     return (
       <div className="App">
         <h3>Friends:</h3>
         <Friends friends={this.state.friends} />
+        <FriendForm addfriend={this.addFriends} />
       </div>
     );
   }
