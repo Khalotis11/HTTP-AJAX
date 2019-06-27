@@ -1,29 +1,29 @@
-import React,{ Component } from "react";
+import React, { Component } from "react";
 import "./App.css";
 
 import axios from "axios";
-import { Friends } from "./components/Friends"
+import { Friends } from "./components/Friends";
 
 export default class App extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       friends: []
-    }
+    };
   }
-  componentDidMount(){
+  componentDidMount() {
     axios
-    .get("http://localhost:5000/friends")
-    .then(res => {
-      console.log(res)
-      this.setState({
-        friends: res.data
+      .get("http://localhost:5000/friends")
+      .then(res => {
+        console.log(res);
+        this.setState({
+          friends: res.data
+        });
       })
-    })
-    .catch(err => {
-      console.log("Error:", err)
-    })
-    console.log(this.state)
+      .catch(err => {
+        console.log("Error:", err);
+      });
+    console.log(this.state);
   }
   render() {
     return (
