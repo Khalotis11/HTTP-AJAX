@@ -23,7 +23,7 @@ export default class FriendForm extends Component {
       .post(" http://localhost:5000/friends", payload)
       .then(res => {
         // console.log(res);
-        this.props.addfriend(res.data);
+        this.props.newfriend(res.data);
         this.props.history.push("http://localhost:5000");
       })
       .catch(err => {

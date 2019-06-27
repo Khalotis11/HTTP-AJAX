@@ -26,7 +26,7 @@ export default class App extends Component {
       });
     // console.log(this.state);
   }
-  addFriends = friends => {
+  newFriends = friends => {
     this.setState ({
       friends
     })
@@ -36,7 +36,7 @@ export default class App extends Component {
       <div className="App">
         <h3>Friends:</h3>
         <Friends friends={this.state.friends} />
-        <FriendForm addfriend={this.addFriends} />
+        <FriendForm newfriend={this.newFriends} />
       </div>
     );
   }
